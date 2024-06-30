@@ -1,12 +1,12 @@
-package steps;
+package ru.praktikum.steps;
 
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
-import model.Order;
-import model.User;
+import ru.praktikum.model.Order;
 
-import static config.RestConfig.HOST;
+import static ru.praktikum.EndPoints.*;
+import static ru.praktikum.config.RestConfig.HOST;
 import static io.restassured.RestAssured.given;
 
 public class OrderSteps {
@@ -17,7 +17,7 @@ public class OrderSteps {
                 .baseUri(HOST)
                 .body(order)
                 .when()
-                .post("/api/orders")
+                .post(ORDER)
                 .then();
     }
 
@@ -25,7 +25,7 @@ public class OrderSteps {
     public ValidatableResponse getIngredient(){
         return given()
                 .baseUri(HOST)
-                .get("/api/ingredients")
+                .get(INGREDIENTS)
                 .then();
     }
 
@@ -34,7 +34,7 @@ public class OrderSteps {
         return given()
                 .baseUri(HOST)
                 .headers("Authorization", order.getToken())
-                .get("/api/orders")
+                .get(ORDER)
                 .then();
     }
 }

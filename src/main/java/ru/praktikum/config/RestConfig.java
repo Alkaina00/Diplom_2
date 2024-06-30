@@ -1,4 +1,4 @@
-package config;
+package ru.praktikum.config;
 
 import lombok.experimental.UtilityClass;
 

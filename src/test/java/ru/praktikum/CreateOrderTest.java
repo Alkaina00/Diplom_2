@@ -1,15 +1,17 @@
+package ru.praktikum;
+
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
-import model.Order;
-import model.User;
+import ru.praktikum.model.Order;
+import ru.praktikum.model.User;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import steps.OrderSteps;
-import steps.UserSteps;
+import ru.praktikum.steps.OrderSteps;
+import ru.praktikum.steps.UserSteps;
 
 import java.util.Arrays;
 import java.util.List;

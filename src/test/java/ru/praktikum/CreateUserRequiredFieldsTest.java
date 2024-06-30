@@ -1,14 +1,15 @@
+package ru.praktikum;
+
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
-import model.User;
-import org.apache.commons.lang3.RandomStringUtils;
+import ru.praktikum.model.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import steps.UserSteps;
+import ru.praktikum.steps.UserSteps;
 
 import static org.hamcrest.Matchers.is;
 

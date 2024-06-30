@@ -1,11 +1,12 @@
-package steps;
+package ru.praktikum.steps;
 
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
-import model.User;
+import ru.praktikum.model.User;
 
-import static config.RestConfig.HOST;
+import static ru.praktikum.EndPoints.*;
+import static ru.praktikum.config.RestConfig.HOST;
 import static io.restassured.RestAssured.given;
 
 public class UserSteps {
@@ -16,7 +17,7 @@ public class UserSteps {
                 .baseUri(HOST)
                 .body(user)
                 .when()
-                .post("/api/auth/register")
+                .post(REGISTER)
                 .then();
     }
 
@@ -27,7 +28,7 @@ public class UserSteps {
                 .baseUri(HOST)
                 .body(user)
                 .when()
-                .post("/api/auth/login")
+                .post(LOGIN)
                 .then();
     }
 
@@ -38,7 +39,7 @@ public class UserSteps {
                 .headers("Authorization", user.getToken())
                 .baseUri(HOST)
                 .when()
-                .delete("/api/auth/user")
+                .delete(USER)
                 .then();
     }
 
@@ -50,7 +51,7 @@ public class UserSteps {
                 .baseUri(HOST)
                 .body(user)
                 .when()
-                .patch("/api/auth/user")
+                .patch(USER)
                 .then();
     }
 }
