@@ -4,11 +4,11 @@ import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
-import ru.praktikum.model.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import ru.praktikum.model.User;
 import ru.praktikum.steps.UserSteps;
 
 import static org.hamcrest.Matchers.is;
@@ -16,12 +16,12 @@ import static org.hamcrest.Matchers.is;
 @RunWith(Parameterized.class)
 public class CreateUserRequiredFieldsTest {
     private final UserSteps userSteps = new UserSteps();
-    private User user;
     private final String email;
     private final String password;
     private final String name;
+    private User user;
 
-    public CreateUserRequiredFieldsTest(String email, String password, String name){
+    public CreateUserRequiredFieldsTest(String email, String password, String name) {
         this.email = email;
         this.password = password;
         this.name = name;
@@ -41,7 +41,7 @@ public class CreateUserRequiredFieldsTest {
     }
 
     @Before
-    public void setUp(){
+    public void setUp() {
         RestAssured.filters(new RequestLoggingFilter());
 
         user = new User();
@@ -53,7 +53,7 @@ public class CreateUserRequiredFieldsTest {
     @Test
     @DisplayName("Проверка ошибки обязательного поля /api/v1/courier")
     @Description("Проверка создания пользователя без обязательного поля")
-    public void testCreateUserRequiredFieldsTest(){
+    public void testCreateUserRequiredFieldsTest() {
         userSteps
                 .createUser(user)
                 .statusCode(403)
